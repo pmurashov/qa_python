@@ -85,8 +85,8 @@ class TestBooksCollector:
 
         assert book_name in collector.get_list_of_favorites_books()
 
-    def test_delete_book_from_favorites(self):
-        book_name = "White book"
+    @pytest.mark.parametrize("book_name", ["Johnny Cage", "Remember Alyona Sviridova?", "Mortal Kombat XI"])
+    def test_delete_book_from_favorites(self, book_name):
         collector = BooksCollector()
         collector.add_new_book(book_name)
         collector.add_book_in_favorites(book_name)
